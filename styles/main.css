@@ -22,3 +22,12 @@
 .tiles > li:nth-child(3n+3) {
 	background-color: #DDE;
 }
+
+/* XXX: DEBUG */
+table {
+	border-collapse: collapse;
+}
+td {
+	border: 1px solid #AAA;
+	padding: 5px;
+}
