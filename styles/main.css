@@ -13,15 +13,6 @@
 	line-height: 100px;
 	transition: all 1s ease;
 }
-.tiles > li:nth-child(3n+1) {
-	background-color: #EDD;
-}
-.tiles > li:nth-child(3n+2) {
-	background-color: #DED;
-}
-.tiles > li:nth-child(3n+3) {
-	background-color: #DDE;
-}
 
 /* XXX: DEBUG */
 table {
