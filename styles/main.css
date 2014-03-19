@@ -14,6 +14,16 @@
 	transition: all 1s ease;
 }
 
+/* draggable */
+
+.is-dragging {
+	z-index: 99;
+}
+
+.tiles > li.is-dragging {
+	transition: none; /* neutralize tiles' fan animation */
+}
+
 /* XXX: DEBUG */
 table {
 	border-collapse: collapse;
