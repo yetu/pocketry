@@ -1,0 +1,7 @@
+{
+	"name": "Pocketry",
+	"dependencies": {
+		"jqlite": "https://gist.github.com/86a4ecbe0fd9575a0e5b.git",
+		"draggabilly": "https://gist.github.com/84c18f77685b2dd2cf85.git"
+	}
+}

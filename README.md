@@ -1,6 +1,6 @@
 Getting Started
 ---------------
 
-* download [Draggabilly](http://draggabilly.desandro.com) and
-  [jqLite](http://code.google.com/p/jqlite/) into `./extlib`
+* install [Bower](http://bower.io)
+* `bower install` downloads third-party components
 * open `index.html` in a reasonably modern browser
