@@ -1,0 +1,9 @@
+{
+	"devDependencies": {
+		"bower": ">=1.2.8",
+		"gulp": ">=3.5.2",
+		"gulp-rename": "~1.2.0",
+		"gulp-concat": "~2.2.0",
+		"gulp-uglify": "~0.2.1"
+	}
+}
