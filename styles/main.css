@@ -25,6 +25,18 @@
 }
 
 /* XXX: DEBUG */
+
+.tiles > .pin {
+	border-radius: 50px;
+	background-color: #EDD;
+}
+.tiles > .app {
+	background-color: #DED;
+}
+.tiles > .feed {
+	background-color: #DDE;
+}
+
 table {
 	border-collapse: collapse;
 }
