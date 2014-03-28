@@ -4,7 +4,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
 gulp.task('dist', function() {
-	return gulp.src(['lib/core.js', 'lib/renderer.js', 'lib/draggable.js']).
+	return gulp.src(['lib/ui.js', 'lib/layout.js', 'lib/draggable.js']).
 		pipe(concat('pocketry.js')).
 		pipe(gulp.dest('dist')).
 		pipe(rename('pocketry.min.js')).
