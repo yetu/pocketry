@@ -6,8 +6,6 @@
 
 .tiles > li {
 	position: absolute;
-	top: 0;
-	left: 0;
 	width: 100px;
 	height: 100px;
 	line-height: 100px;
@@ -21,7 +19,7 @@
 }
 
 .tiles > li.is-dragging {
-	transition: none; /* neutralize tiles' fan animation */
+	transition: none; /* neutralize tiles' animation delay */
 }
 
 /* XXX: DEBUG */
