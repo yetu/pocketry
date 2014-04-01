@@ -4,7 +4,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
 gulp.task('dist', function() {
-	var paths = ['lib/ui.js', 'lib/layout.js', 'lib/draggable.js'];
+	var paths = ['lib/ui.js', 'lib/layout.js', 'lib/draggable.js', 'lib/util.js'];
 	build(paths);
 	build(['lib/angular_shim.js'].concat(paths), 'angular');
 });
