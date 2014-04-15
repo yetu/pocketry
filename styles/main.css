@@ -9,6 +9,7 @@
 	width: 100px;
 	height: 100px;
 	line-height: 100px;
+	-webkit-transition: transform 1s ease;
 	transition: transform 1s ease;
 }
 
