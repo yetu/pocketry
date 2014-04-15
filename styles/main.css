@@ -9,6 +9,9 @@
 	width: 100px;
 	height: 100px;
 	line-height: 100px;
+}
+
+.tiles.animated > li {
 	-webkit-transition: transform 1s ease;
 	transition: transform 1s ease;
 }
