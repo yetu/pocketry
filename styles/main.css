@@ -18,6 +18,10 @@
 	transition-property: transform, top, left;
 }
 
+.hidden {
+	display: none;
+}
+
 /* draggable */
 
 .is-dragging {
