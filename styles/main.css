@@ -12,8 +12,10 @@
 }
 
 .tiles.animated > li {
-	-webkit-transition: -webkit-transform 1s ease;
+	-webkit-transition: transform 1s ease;
+	-webkit-transition-property: -webkit-transform, top, left;
 	transition: transform 1s ease;
+	transition-property: transform, top, left;
 }
 
 /* draggable */
