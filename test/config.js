@@ -9,6 +9,8 @@ module.exports = function (config) {
     files: [
       {pattern: 'bower_components/**/*.js', watched: false, server: true, included: true},
       'lib/matrix.js',
+      'lib/ui.js',
+      'lib/layout.js',
       {pattern: 'test/**/*.spec.js'}
     ],
 
