@@ -116,7 +116,7 @@ describe('Matrix', function () {
     describe('.each', function () {
       it('should iterate over all selected values (real and virtual)', function () {
         var iterations = 0;
-        m.rows(0, 9).cols(1, 3).each(function (val, row, col) {
+        m.rows(0, 10).cols(1, 4).each(function (val, row, col) {
           expect(m.get(row, col)).toEqual(val);
           iterations++;
         });
@@ -146,7 +146,7 @@ describe('Matrix', function () {
         ];
 
         m = new Matrix();
-        m.rows(0, 1).cols(0, 1).map(function () {
+        m.rows(0, 2).cols(0, 2).map(function () {
           return 1;
         });
         expect(m.get()).toEqual(arr);
@@ -159,7 +159,7 @@ describe('Matrix', function () {
             [null, null]
           ];
 
-        m.rows(0, 1).cols(0, 1).map();
+        m.rows(0, 2).cols(0, 2).map();
         expect(m.get()).toEqual(result);
       });
     });
@@ -167,14 +167,14 @@ describe('Matrix', function () {
     describe('.some', function () {
       it('should return true if predicate match on any matrix value',
         function () {
-          expect(m.rows(1).cols(0, 3).some(function (val) {
+          expect(m.rows(1).cols(0, 4).some(function (val) {
             return val === 7;
           })).toBeTruthy();
         });
 
       it('should return false if predicate does not match on some matrix value',
         function () {
-          expect(m.rows(1).cols(0, 3).some(function (val) {
+          expect(m.rows(1).cols(0, 4).some(function (val) {
             return val === 1;
           })).toBeFalsy();
         });
