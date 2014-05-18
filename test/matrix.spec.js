@@ -22,6 +22,10 @@ describe('Matrix', function () {
     expect(Matrix).toBeDefined();
   });
 
+  it('selection should refere the matrix itself', function () {
+    expect(m.selection.matrix).toBe(m);
+  });
+
   it('should wrap an array matrix ', function () {
     expect(new Matrix(arr)._).toEqual(arr);
   });
@@ -129,7 +133,6 @@ describe('Matrix', function () {
         expect(m.rows(0).cols(0).map(function () {
           return 1;
         })).toEqual(jasmine.any(Matrix));
-        return;
       });
 
       it('should write each function result value to each cell', function () {
@@ -160,6 +163,26 @@ describe('Matrix', function () {
           ];
 
         m.rows(0, 2).cols(0, 2).map();
+        expect(m.get()).toEqual(result);
+      });
+
+      it('should work correctly with virtual cells', function () {
+        var m = new Matrix([
+          [null, null],
+          [null, null]
+        ]);
+
+        var result = [
+          [null, null],
+          [null, null],
+          [1, 1],
+          [1, 1]
+        ];
+
+        m.rows(2, 4).map(function () {
+          return 1;
+        });
+
         expect(m.get()).toEqual(result);
       });
     });
