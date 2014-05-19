@@ -117,6 +117,10 @@ describe('Matrix', function () {
       expect(m.rows(100).cols(100).val()).toBeUndefined();
     });
 
+    it('.size should compute the current selection size', function () {
+      expect(m.rows(0,10).cols(0,10).size()).toEqual([10,10]);
+    });
+
     describe('.each', function () {
       it('should iterate over all selected values (real and virtual)', function () {
         var iterations = 0;
