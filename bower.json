@@ -2,7 +2,7 @@
   "name": "Pocketry",
   "dependencies": {
     "jqlite": "https://gist.github.com/86a4ecbe0fd9575a0e5b.git",
-    "draggabilly": "https://gist.github.com/84c18f77685b2dd2cf85.git",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "draggabilly": "mr-mig/draggabilly#~1.1.1"
   }
 }

@@ -42,6 +42,12 @@ function test(runOnce, breakOnError) {
 
 gulp.task('dist', function () {
   var paths = [
+    'bower_components/eventEmitter/EventEmitter.js',
+    'bower_components/eventie/eventie.js',
+    'bower_components/get-style-property/get-style-property.js',
+    'bower_components/classie/classie.js',
+    'bower_components/get-size/get-size.js',
+    'bower_components/draggabilly/draggabilly.js',
     'lib/matrix.js',
     'lib/ui.js',
     'lib/layout.js',
