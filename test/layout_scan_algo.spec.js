@@ -2,13 +2,12 @@
 /*global jasmine, describe, xdescribe, it, xit,
  expect, beforeEach, afterEach,
  Pocketry */
-describe('Layout.prototype.walk.nextStep', function () {
-  var initSelection,
-    nextStep = Pocketry.Layout.prototype.walk.nextStep;
+describe('Layout.prototype._nextScanStep', function () {
+  var nextStep = Pocketry.Layout.prototype._nextScanStep;
 
-  function prepareStep(selection, stepSize, iteratee) {
+  function prepareStep(stepSize, iteratee) {
     var fn = function (stepNumber) {
-      return nextStep(selection, stepNumber, stepSize, iteratee);
+      return nextStep(stepNumber, stepSize, iteratee);
     };
     fn.cursor = function (row, col) {
       return {
@@ -26,14 +25,8 @@ describe('Layout.prototype.walk.nextStep', function () {
   }
 
   describe('iterating over 10x3 matrix with [3,2] step', function () {
-    initSelection = {row: {start: 0, end: 0}, col: {start: 0, end: 0}};
     var matrix = new Pocketry.Layout(3, 10).matrix,
-      step = prepareStep(initSelection, [3, 2], matrix.selection);
-
-    beforeEach(function () {
-      initSelection = {row: {start: 0, end: 0}, col: {start: 0, end: 0}};
-    });
-
+      step = prepareStep([3, 2], matrix.selection);
 
     it('should point cursor at step 0 to [0,0]', function () {
       expect(step(0)).toEqual(step.cursor(0, 0));
@@ -61,14 +54,8 @@ describe('Layout.prototype.walk.nextStep', function () {
   });
 
   describe('iterating over 2x5 matrix with [2,1] step', function () {
-    initSelection = {row: {start: 0, end: 0}, col: {start: 0, end: 0}};
     var matrix = new Pocketry.Layout(5, 2).matrix,
-      step = prepareStep(initSelection, [2, 1], matrix.selection);
-
-    beforeEach(function () {
-      initSelection = {row: {start: 0, end: 0}, col: {start: 0, end: 0}};
-    });
-
+      step = prepareStep([2, 1], matrix.selection);
 
     it('should point cursor at step 0 to [0,0]', function () {
       expect(step(0)).toEqual(step.cursor(0, 0));

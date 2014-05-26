@@ -118,9 +118,9 @@ describe('.add', function () {
 
       result = [
         [feed, feed, feed, pin, null],
-        [feed, feed, feed, app, app],
+        [feed, feed, feed, null, null],
         [f33d, f33d, f33d, app, app],
-        [f33d, f33d, f33d, null, null]
+        [f33d, f33d, f33d, app, app]
       ];
 
     this.l.add(feed);
@@ -131,7 +131,7 @@ describe('.add', function () {
     expect(feed.position).toEqual(position(0, 0));
     expect(f33d.position).toEqual(position(0, 2));
     expect(pin.position).toEqual(position(3, 0));
-    expect(app.position).toEqual(position(3, 1));
+    expect(app.position).toEqual(position(3, 2));
   });
 
   it('should add 2 apps and 2 feeds to a 4x2 layout', function () {
@@ -184,10 +184,12 @@ describe('.add', function () {
 
 
     var result = [
-      [app(1), app(1), pin(2), pin(3), fid(5), fid(5), fid(5), app(11), app(11)],
-      [app(1), app(1), pin(4), pin(7), fid(5), fid(5), fid(5), app(11), app(11)],
-      [fid(6), fid(6), fid(6), pin(8), app(9), app(9), fid(10), fid(10), fid(10)],
-      [fid(6), fid(6), fid(6), null, app(9), app(9), fid(10), fid(10), fid(10)]
+      [app(1), app(1), pin(2), pin(3), fid(5), fid(5), fid(5), pin(8), null],
+      [app(1), app(1), pin(4), pin(7), fid(5), fid(5), fid(5), null, null],
+      [fid(6), fid(6), fid(6), app(9), app(9), fid(10), fid(10), fid(10), null],
+      [fid(6), fid(6), fid(6), app(9), app(9), fid(10), fid(10), fid(10), null],
+      [app(11), app(11), null, null, null, null, null, null, null],
+      [app(11), app(11), null, null, null, null, null, null, null]
     ];
 
     var l = this.l;
@@ -196,6 +198,28 @@ describe('.add', function () {
     });
     dumpLayout(this.l);
     expect(this.l.matrix.get()).toEqual(result);
-    expect(fid(11).position).toEqual(position(7, 0));
+  });
+
+  it('should add a set of tiles in rows based on rowSpan', function () {
+    var l = new Pocketry.Layout(5, 2);
+    var pin = pinTile();
+    var pin2 = pinTile();
+    var app = appTile();
+    var app2 = appTile();
+
+    var result = [
+      [pin, pin2, app, app, null],
+      [null, null, app, app, null],
+      [app2, app2, null, null, null],
+      [app2, app2, null, null, null]
+    ];
+
+    l.add(pin);
+    l.add(pin2);
+    l.add(app);
+    l.add(app2);
+
+    dumpLayout(l);
+    expect(l.matrix.get()).toEqual(result);
   })
 });

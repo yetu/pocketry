@@ -116,19 +116,19 @@ describe('Layout suite', function () {
         expect(iterations).toBe(3);
       });
 
-    it('should iterate over 9 cells if stepSize = 3x2 and matrix size = 4x5',
+    it('should iterate over 6 cells if stepSize = 3x2 and matrix size = 4x5',
       function () {
+        this.l.extend();
+        this.l.walk(countIterations, [3, 2]);
+        expect(iterations).toBe(6);
+      });
+
+    it('should iterate over 9 cells if stepSize = 3x2 and matrix size = 5x6',
+      function () {
+        this.l.extend();
         this.l.extend();
         this.l.walk(countIterations, [3, 2]);
         expect(iterations).toBe(9);
-      });
-
-    it('should iterate over 15 cells if stepSize = 3x2 and matrix size = 5x6',
-      function () {
-        this.l.extend();
-        this.l.extend();
-        this.l.walk(countIterations, [3, 2]);
-        expect(iterations).toBe(15);
       });
 
     it('should iterate over 16 cells if stepSize = 3x2 and matrix size = 3x10',
