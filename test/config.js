@@ -7,11 +7,15 @@ module.exports = function (config) {
     autoWatch: true,
 
     files: [
-      {pattern: 'bower_components/**/*.js', watched: false, server: true, included: true},
+      'bower_components/lodash/dist/lodash.js',
+      'bower_components/jqlite/jqlite.min.js',
       'lib/matrix.js',
       'lib/ui.js',
       'lib/layout.js',
       {pattern: 'test/**/*.spec.js'}
+    ],
+    exclude : [
+      'bower_components/**/test/*.js'
     ],
 
     reportSlowerThan: 500
