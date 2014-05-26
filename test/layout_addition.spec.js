@@ -2,7 +2,7 @@
 /*global jasmine, describe, xdescribe, it, xit,
  expect, beforeEach, afterEach,
  Pocketry */
-describe('.add', function () {
+describe('Layout Addition: Layout.add', function () {
   beforeEach(function () {
     this.colCount = 5;
     this.rowSpan = 2;
@@ -117,21 +117,24 @@ describe('.add', function () {
       app = appTile(),
 
       result = [
-        [feed, feed, feed, pin, null],
         [feed, feed, feed, null, null],
-        [f33d, f33d, f33d, app, app],
-        [f33d, f33d, f33d, app, app]
+        [feed, feed, feed, null, null],
+        [f33d, f33d, f33d, pin, null],
+        [f33d, f33d, f33d, null, null],
+        [app, app, null, null, null],
+        [app, app, null, null, null]
       ];
 
     this.l.add(feed);
     this.l.add(f33d);
     this.l.add(pin);
     this.l.add(app);
+    dumpLayout(this.l);
     expect(this.l.matrix.get()).toEqual(result);
     expect(feed.position).toEqual(position(0, 0));
     expect(f33d.position).toEqual(position(0, 2));
-    expect(pin.position).toEqual(position(3, 0));
-    expect(app.position).toEqual(position(3, 2));
+    expect(pin.position).toEqual(position(3, 2));
+    expect(app.position).toEqual(position(0, 4));
   });
 
   it('should add 2 apps and 2 feeds to a 4x2 layout', function () {
@@ -173,7 +176,7 @@ describe('.add', function () {
       pinTile(),
       appTile(),
       feedTile(),
-      appTile(),
+      appTile()
     ];
 
     function o(tileId) {
@@ -184,10 +187,10 @@ describe('.add', function () {
 
 
     var result = [
-      [app(1), app(1), pin(2), pin(3), fid(5), fid(5), fid(5), pin(8), null],
-      [app(1), app(1), pin(4), pin(7), fid(5), fid(5), fid(5), null, null],
-      [fid(6), fid(6), fid(6), app(9), app(9), fid(10), fid(10), fid(10), null],
-      [fid(6), fid(6), fid(6), app(9), app(9), fid(10), fid(10), fid(10), null],
+      [app(1), app(1), pin(2), pin(3), fid(5), fid(5), fid(5), null, null],
+      [app(1), app(1), pin(4), null, fid(5), fid(5), fid(5), null, null],
+      [fid(6), fid(6), fid(6), pin(7), app(9), app(9), fid(10), fid(10), fid(10)],
+      [fid(6), fid(6), fid(6), pin(8), app(9), app(9), fid(10), fid(10), fid(10)],
       [app(11), app(11), null, null, null, null, null, null, null],
       [app(11), app(11), null, null, null, null, null, null, null]
     ];
@@ -198,6 +201,9 @@ describe('.add', function () {
     });
     dumpLayout(this.l);
     expect(this.l.matrix.get()).toEqual(result);
+    expect(pin(7).position).toEqual(position(3, 2));
+    expect(pin(8).position).toEqual(position(3, 3));
+    expect(pin(10).position).toEqual(position(6, 2));
   });
 
   it('should add a set of tiles in rows based on rowSpan', function () {
