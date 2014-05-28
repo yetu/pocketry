@@ -28,7 +28,7 @@ function test(runOnce, breakOnError) {
 
   // for tdd option run only phantom
   if (runOnce === false) {
-    cfg.browsers = ['PhantomJS'];
+    cfg.browsers = ['PhantomJS', 'Chrome'];
   }
 
   karma.start(cfg, function (exitCode) {

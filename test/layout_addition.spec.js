@@ -31,16 +31,18 @@ describe('Layout Addition: Layout.add', function () {
     pinTile = tileCreator(Pocketry.TILES.pin),
     feedTile = tileCreator(Pocketry.TILES.feed);
 
-  function dumpLayout(layout) {
+  function dumpLayout(layout, msg) {
+    msg = msg || '';
     var arr = layout.matrix.get().map(function (row) {
       return row.map(function (tile) {
         return tile ? tile.id : 0;
       });
     });
-    var str = '\n';
+    var str = '\n' + msg + '\n';
     arr.forEach(function (row) {
       row.forEach(function (val) {
         str += (val ? val : 0);
+        str += ' ';
       });
       str += '\n';
     });
@@ -236,10 +238,9 @@ describe('Layout Addition: Layout.add', function () {
     var app2 = appTile();
     var pin2 = pinTile();
 
-
     var result = [
-      [app, app, pin, app2,app2, pin2],
-      [app, app, null, app2,app2, null]
+      [app, app, pin, app2, app2, pin2],
+      [app, app, null, app2, app2, null]
     ];
 
     l.add(app);
