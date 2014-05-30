@@ -189,12 +189,12 @@ describe('Layout Addition: Layout.add', function () {
 
 
     var result = [
-      [app(1), app(1), pin(2), pin(3), fid(5), fid(5), fid(5), null, null],
-      [app(1), app(1), pin(4), null, fid(5), fid(5), fid(5), null, null],
-      [fid(6), fid(6), fid(6), pin(7), pin(8), app(9), app(9), null, null],
-      [fid(6), fid(6), fid(6), null, null, app(9), app(9), null, null],
-      [fid(10), fid(10), fid(10), app(11), app(11), null, null, null, null],
-      [fid(10), fid(10), fid(10), app(11), app(11), null, null, null, null]
+      [app(1), app(1), pin(2), pin(4), fid(5), fid(5), fid(5), null, null],
+      [app(1), app(1), pin(3), null, fid(5), fid(5), fid(5), null, null],
+      [fid(6), fid(6), fid(6), pin(7), app(9), app(9), fid(10), fid(10), fid(10)],
+      [fid(6), fid(6), fid(6), pin(8), app(9), app(9), fid(10), fid(10), fid(10)],
+      [app(11), app(11), null, null, null, null, null, null, null],
+      [app(11), app(11), null, null, null, null, null, null, null]
     ];
 
     var l = this.l;
@@ -204,8 +204,8 @@ describe('Layout Addition: Layout.add', function () {
     dumpLayout(this.l);
     expect(this.l.matrix.get()).toEqual(result);
     expect(pin(7).position).toEqual(position(3, 2));
-    expect(pin(8).position).toEqual(position(4, 2));
-    expect(pin(10).position).toEqual(position(0, 4));
+    expect(pin(8).position).toEqual(position(3, 3));
+    expect(pin(10).position).toEqual(position(6, 2));
   });
 
   it('should add a set of tiles in rows based on rowSpan', function () {
@@ -216,10 +216,8 @@ describe('Layout Addition: Layout.add', function () {
     var app2 = appTile();
 
     var result = [
-      [pin, pin2, app, app, null],
-      [null, null, app, app, null],
-      [app2, app2, null, null, null],
-      [app2, app2, null, null, null]
+      [pin, app, app, app2, app2],
+      [pin2,app, app, app2, app2]
     ];
 
     l.add(pin);
