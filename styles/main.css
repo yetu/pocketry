@@ -2,20 +2,21 @@
 	position: relative;
 	list-style-type: none;
 	text-align: center;
+    -webkit-transform:translate3d(0,0,0);
 }
 
 .tiles > li {
 	position: absolute;
+    top: 0;
+    left: 0;
 	width: 100px;
 	height: 100px;
 	line-height: 100px;
+    transition: all 0.5s;
 }
 
 .tiles.animated > li {
-	-webkit-transition: transform 1s ease;
-	-webkit-transition-property: -webkit-transform, top, left;
-	transition: transform 1s ease;
-	transition-property: transform, top, left;
+
 }
 
 .hidden {
