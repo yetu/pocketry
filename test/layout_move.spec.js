@@ -164,12 +164,12 @@ describe('Tile move in the layout', function () {
       var app = pin = fid = o;
 
       var result = [
-        [app(1), app(1), pin(2), pin(3), fid(5), fid(5), fid(5), null, null],
-        [app(1), app(1), pin(4), null, fid(5), fid(5), fid(5), null, null],
-        [fid(6), fid(6), fid(6), pin(7), pin(8), app(9), app(9), null, null],
-        [fid(6), fid(6), fid(6), null, null, app(9), app(9), null, null],
-        [fid(10), fid(10), fid(10), app(11), app(11), null, null, null, null],
-        [fid(10), fid(10), fid(10), app(11), app(11), null, null, null, null]
+        [app(1), app(1), pin(2), pin(4), fid(5), fid(5), fid(5), null, null],
+        [app(1), app(1), pin(3), null, fid(5), fid(5), fid(5), null, null],
+        [fid(6), fid(6), fid(6), pin(7), app(9), app(9), fid(10), fid(10), fid(10)],
+        [fid(6), fid(6), fid(6), pin(8), app(9), app(9), fid(10), fid(10), fid(10)],
+        [app(11), app(11), null, null, null, null, null, null, null],
+        [app(11), app(11), null, null, null, null, null, null, null]
       ];
 
       var l = this.l;
@@ -184,20 +184,18 @@ describe('Tile move in the layout', function () {
       l.rebuild();
 
       var expectedResult = [
-        [app(1), app(1), pin(2), pin(3), fid(5), fid(5), fid(5), null, null],
-        [app(1), app(1), null, null, fid(5), fid(5), fid(5), null, null],
-        [fid(6), fid(6), fid(6), pin(7), pin(8), app(9), app(9), null, null],
-        [fid(6), fid(6), fid(6), pin(4), null, app(9), app(9), null, null],
-        [fid(10), fid(10), fid(10), app(11), app(11), null, null, null, null],
-        [fid(10), fid(10), fid(10), app(11), app(11), null, null, null, null]
+        [app(1), app(1), pin(2), fid(5), fid(5), fid(5), fid(6), fid(6), fid(6)],
+        [app(1), app(1), pin(3), fid(5), fid(5), fid(5), fid(6), fid(6), fid(6)],
+        [pin(7), pin(4), app(9), app(9), fid(10), fid(10), fid(10), app(11), app(11)],
+        [pin(8), null, app(9), app(9), fid(10), fid(10), fid(10), app(11), app(11)]
       ];
 
       dumpLayout(this.l, 'After move 4 -> 7');
       expect(l.matrix.get()).toEqual(expectedResult);
-      expect(pin(7).position).toEqual(position(3, 2));
-      expect(pin(8).position).toEqual(position(4, 2));
-      expect(pin(10).position).toEqual(position(0, 4));
-      expect(pin(4).position).toEqual(position(3, 3));
+      expect(pin(7).position).toEqual(position(0, 2));
+      expect(pin(8).position).toEqual(position(0, 3));
+      expect(pin(10).position).toEqual(position(4, 2));
+      expect(pin(4).position).toEqual(position(1, 2));
     });
 
     it('should add single pin to the layout', function () {
@@ -223,15 +221,15 @@ describe('Tile move in the layout', function () {
       var app = pin = fid = o;
 
       var result = [
-        [app(1), app(1), pin(2), pin(3), fid(5), fid(5), fid(5), fid(6), fid(6), fid(6), pin(7)],
-        [app(1), app(1), pin(4), null, fid(5), fid(5), fid(5), fid(6), fid(6), fid(6), pin(8)],
+        [app(1), app(1), pin(2), pin(4), fid(5), fid(5), fid(5), fid(6), fid(6), fid(6), pin(7)],
+        [app(1), app(1), pin(3), null, fid(5), fid(5), fid(5), fid(6), fid(6), fid(6), pin(8)],
         [app(9), app(9), fid(10), fid(10), fid(10), app(11), app(11), null, null, null, null],
         [app(9), app(9), fid(10), fid(10), fid(10), app(11), app(11), null, null, null, null]
       ];
 
       var afterMove = [
-        [app(1), app(1), pin(2), pin(3), fid(5), fid(5), fid(5), pin(7), fid(6), fid(6), fid(6) ],
-        [app(1), app(1), pin(4), null, fid(5), fid(5), fid(5), null, fid(6), fid(6), fid(6) ],
+        [app(1), app(1), pin(2), pin(4), fid(5), fid(5), fid(5), pin(7), fid(6), fid(6), fid(6) ],
+        [app(1), app(1), pin(3), null, fid(5), fid(5), fid(5), null, fid(6), fid(6), fid(6) ],
         [pin(8), app(9), app(9), fid(10), fid(10), fid(10), app(11), app(11), null, null, null],
         [null, app(9), app(9), fid(10), fid(10), fid(10), app(11), app(11), null, null, null]
       ];
@@ -261,8 +259,8 @@ describe('Tile move in the layout', function () {
       this.l.add(pin2);
 
       var result = [
-        [pin, pin2, app, app, null],
-        [null, null, app, app, null],
+        [pin, app, app, null, null],
+        [pin2, app, app, null, null]
       ];
 
       this.l.moveTo(pin2, {x: 1, y: 0});
@@ -282,9 +280,10 @@ describe('Tile move in the layout', function () {
 
       var result = [
         [pin, app, app, pin2, null],
-        [null,app, app, null, null],
+        [null, app, app, null, null]
       ];
 
+      dumpLayout(this.l, 'Initial layout');
       this.l.moveTo(pin2, {x: 3, y: 1});
       dumpLayout(this.l, 'Moved pin -> app right');
       expect(this.l.stack).toEqual([pin, app, pin2]);
@@ -301,14 +300,54 @@ describe('Tile move in the layout', function () {
       this.l.add(pin2);
 
       var result = [
-        [pin, pin2, app, app, null],
-        [null,null, app, app, null],
+        [pin, app, app, null, null],
+        [pin2, app, app, null, null]
       ];
 
+      dumpLayout(this.l, 'Initial layout');
       this.l.moveTo(pin2, {x: 0, y: 1});
-      dumpLayout(this.l, 'Moved pin -> empty');
+      dumpLayout(this.l, 'Moved pin -> empty (0, 1)');
       expect(this.l.stack).toEqual([pin, pin2, app]);
       expect(this.l.matrix.get()).toEqual(result);
+    });
+
+    it('should move pin to correct position and back to initial', function () {
+      var pin = pinTile(), //1
+        pin2 = pinTile(),  //2
+        app = appTile(),  //3
+        app2 = appTile();   //4
+
+      this.l.add(pin);
+      this.l.add(pin2);
+      this.l.add(app);
+      this.l.add(app2);
+
+      var initial = [
+        [pin, app, app, app2, app2],
+        [pin2, app, app, app2, app2]
+      ];
+
+      // initial layout
+      // 1 3 3 4 4
+      // 2 3 3 4 4
+
+      var result = [
+        [pin, app, app, pin2, null],
+        [null, app, app, null, null],
+        [app2, app2, null, null, null],
+        [app2, app2, null, null, null]
+      ];
+
+      dumpLayout(this.l, 'Initial layout');
+      this.l.moveTo(pin2, {x: 1, y: 0});
+      dumpLayout(this.l, 'Moved pin -> app left');
+      expect(this.l.stack).toEqual([pin, app, pin2, app2]);
+      expect(this.l.matrix.get()).toEqual(result);
+
+      this.l.moveTo(pin2, {x: 0, y: 1});
+      dumpLayout(this.l, 'Moved pin -> back (0, 1)');
+      expect(this.l.stack).toEqual([pin, pin2, app, app2]);
+      expect(this.l.matrix.get()).toEqual(initial);
     });
 
   });
