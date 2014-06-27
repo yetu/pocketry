@@ -9,7 +9,9 @@
 	"ignore": [
 		"lib",
 		"test",
-		"styles"
+		"styles",
+		"index.html",
+		"gulpfile.js"
 	],
 	"repository": {
 		"type": "git",

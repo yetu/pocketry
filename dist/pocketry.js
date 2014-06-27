@@ -1887,6 +1887,9 @@ var Pocketry = (function ($, _) {
       self.filterClass = options.filterClass || "hidden"; // TODO: document
 
       var a = self.determineColCount();
+			if (!a){
+				return;
+			}
       self.layout = new Pocketry.Layout(a, rowSpan);
       self.initTiles(this.container);
 
