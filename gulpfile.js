@@ -79,6 +79,6 @@ gulp.task('tdd', function () {
 	test(false);
 });
 
-gulp.task('major', ['dest'], bumpVersion.bind(null, 'major'));
-gulp.task('minor', ['dest'], bumpVersion.bind(null, 'minor'));
-gulp.task('patch', ['dest'], bumpVersion.bind(null, 'patch'));
+gulp.task('major', ['dist'], bumpVersion.bind(null, 'major'));
+gulp.task('minor', ['dist'], bumpVersion.bind(null, 'minor'));
+gulp.task('patch', ['dist'], bumpVersion.bind(null, 'patch'));
