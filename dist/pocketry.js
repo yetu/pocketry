@@ -1884,7 +1884,7 @@ var Pocketry = (function ($, _) {
       options = options || {};
 
       self.slotSize = options.slotSize || 100; // TODO: determine based on tile size within DOM
-      self.filterClass = options.filterClass || "hidden"; // TODO: document
+      self.filterClass = options.filterClass || "is-hidden"; // TODO: document
 
       var a = self.determineColCount();
 			if (!a){
@@ -2020,6 +2020,7 @@ Pocketry.Layout = function () {
 // adds a tile to the matrix
 // that object must have a `size` property of the form `[width, height]`
   Layout.prototype.add = function (tile) {
+	  tile.hidden = tile.el.hasClass('is-hidden');
     if (tile.hidden) {
       this.stack.push(tile); // XXX: DRY!
       return [];
