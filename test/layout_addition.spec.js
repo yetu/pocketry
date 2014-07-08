@@ -249,4 +249,20 @@ describe('Layout Addition: Layout.add', function () {
     dumpLayout(l);
     expect(l.matrix.get()).toEqual(result);
   });
+
+	it('should not handle the oversized tiles', function(){
+		"use strict";
+		var l = new Pocketry.Layout(1, 1);
+
+		var app = appTile();
+
+		var result = [
+			[null]
+		];
+
+		l.add(app);
+		dumpLayout(l);
+		expect(l.matrix.get()).toEqual(result);
+
+	})
 });
