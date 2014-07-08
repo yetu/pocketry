@@ -1929,6 +1929,7 @@ var Pocketry = (function ($, _) {
 		}
 
 		this.relayout = function (topNode) {
+			this.layout.stack.map(updateVisibility);
 			this.layout.rebuild();
 			this.layout.stack.forEach(function (tile) {
 				if (tile === self._dragTile) { // avoid repositioning active dragee -- XXX: breaks encapsulation
@@ -1944,6 +1945,10 @@ var Pocketry = (function ($, _) {
 			}
 			this.publish('relayout');
 		};
+
+		function updateVisibility(tile){
+			tile.hidden = tile.el.hasClass('is-hidden');
+		}
 
 		this.updateContainerDimensions = function () {
 			this.container.css('width', '');
