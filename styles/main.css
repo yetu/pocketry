@@ -42,6 +42,9 @@
 .tiles > .app {
 	background-color: #DED;
 }
+.tiles > .freezed {
+	background-color: #247600;
+}
 .tiles > .feed {
 	background-color: #DDE;
 }

@@ -1901,9 +1901,11 @@ var Pocketry = (function ($, _) {
 			var self = this;
 			var tiles = _.map(container.children(), function (item, index) {
 				var type = $(item).attr('data-type');
+				var freezed = Boolean($(item).attr('data-freezed'));
 				var tile = _.extend(_.clone(self.getTileType(type)), {
 					el: $(item),
-					id: '#' + (index + 1)
+					id: '#' + (index + 1),
+					freezed: freezed
 				});
 				return tile;
 			});
@@ -2108,6 +2110,10 @@ Pocketry.Layout = function () {
 	 * @param toPosition - position to move
 	 */
 	Layout.prototype.move = function (tile, toPosition) {
+		// freezed tiles should not move
+		if (tile.freezed){
+			return;
+		}
 		if (toPosition == null) {
 			toPosition = -1;
 		}
@@ -2153,6 +2159,10 @@ Pocketry.Layout = function () {
 	 */
 	Layout.prototype.moveTo = function (tile, newPosition) {
 		var n = this.getStackNeighbor(newPosition);
+		// do not move tiles if the neighbor is freezed
+		if (n && n.freezed){
+			return;
+		}
 		var newStackIndex = this.getTileInsertIndex(n, newPosition);
 		this.move(tile, newStackIndex);
 	};
@@ -2396,7 +2406,7 @@ Pocketry.Layout = function () {
 
     var self = this;
     this.init = function () {
-      var tiles = this.container.children(':not(.draggable)');
+      var tiles = this.container.children(':not(.draggable) :not([data-freezed=true])');
       $.each(tiles, function (index, node) {
         var draggie = new Draggabilly(node, { containment: self.container[0] });
 
