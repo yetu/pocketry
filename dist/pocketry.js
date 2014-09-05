@@ -1949,7 +1949,6 @@ var Pocketry = (function ($, _) {
 
 					self.position(tile);
 			});
-			self.updateContainerDimensions();
 
 			if (topNode) {
 				topNode.parentNode.appendChild(topNode); // z-index hack -- TODO: use "transitionend" event instead
