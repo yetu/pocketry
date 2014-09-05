@@ -311,6 +311,34 @@ describe('Tile move in the layout', function () {
 			expect(this.l.matrix.get()).toEqual(result);
 		});
 
+		it('should move tile to the border of the container if the move point is out of bounds', function(){
+			var pin = pinTile(),
+					app = appTile(),
+					pin2 = pinTile();
+
+			this.l.add(pin);
+			this.l.add(app);
+			this.l.add(pin2);
+
+			var initial = [
+				[pin, app, app, null, null],
+				[pin2, app, app, null, null]
+			];
+
+			var result = [
+				[pin, app, app, pin2, null],
+				[null, app, app, null, null]
+			];
+
+			dumpLayout(this.l, 'Initial layout');
+
+			this.l.moveTo(pin2, {x: 10, y: 1});
+			dumpLayout(this.l, 'Moved pin -> empty (10, 1)');
+			expect(this.l.stack).toEqual([pin, app, pin2]);
+			expect(this.l.matrix.get()).toEqual(result);
+
+		});
+
 		it('should move pin to correct position and back to initial', function () {
 			var pin = pinTile(), //1
 					pin2 = pinTile(),  //2

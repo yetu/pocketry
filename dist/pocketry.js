@@ -2116,7 +2116,7 @@ Pocketry.Layout = function () {
 	 */
 	Layout.prototype.move = function (tile, toPosition) {
 		// freezed tiles should not move
-		if (tile.freezed){
+		if (tile.freezed) {
 			return;
 		}
 		if (toPosition == null) {
@@ -2165,7 +2165,7 @@ Pocketry.Layout = function () {
 	Layout.prototype.moveTo = function (tile, newPosition) {
 		var n = this.getStackNeighbor(newPosition);
 		// do not move tiles if the neighbor is freezed
-		if (n && n.freezed){
+		if (n && n.freezed) {
 			return;
 		}
 		var newStackIndex = this.getTileInsertIndex(n, newPosition);
@@ -2180,6 +2180,7 @@ Pocketry.Layout = function () {
 	 * @returns {*}
 	 */
 	Layout.prototype.getStackNeighbor = function (position) {
+		position = normalizeBounds(position, this.matrix.size());
 		var neighbor = this.matrix.get(position.y, position.x);
 		while (!neighbor) {
 			position = stepUp(position, this.rowSpan);
@@ -2192,6 +2193,22 @@ Pocketry.Layout = function () {
 
 		return neighbor;
 	};
+
+	/**
+	 * This method returns the normalized movement coordinates.
+	 * Normalization ensures that target coordinates never get out of container's bounds.
+	 */
+	function normalizeBounds(position, container) {
+		var normalized = {x: position.x, y: position.y};
+
+		normalized.x = Math.max(0, position.x);
+		normalized.x = Math.min(container[1], position.x);
+
+		normalized.y = Math.max(0, position.y);
+		normalized.y = Math.min(container[0], position.y);
+
+		return normalized;
+	}
 
 	function stepUp(position, rowHeight) {
 		var offsetInsideRow = position.y % rowHeight;
@@ -2289,13 +2306,13 @@ Pocketry.Layout = function () {
 	Layout.prototype._getRowToScan = function (rowOffset, colOffset) {
 		return this.matrix.
 				rows(
-						rowOffset,
+				rowOffset,
 						rowOffset + this.rowSpan
-				).
+		).
 				cols(
-						colOffset,
-						this.matrix.size()[1]
-				);
+				colOffset,
+				this.matrix.size()[1]
+		);
 	};
 
 	/**
