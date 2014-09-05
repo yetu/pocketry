@@ -1912,6 +1912,7 @@ var Pocketry = (function ($, _) {
 
 			tiles.forEach(self.add);
 			tiles.forEach(self.position);
+			self.updateContainerDimensions();
 			return tiles;
 		};
 
@@ -1930,24 +1931,25 @@ var Pocketry = (function ($, _) {
 			return element[0].offsetHeight > 0 && element[0].offsetWidth > 0;
 		}
 
-		var arrayAppendTiles  = function(item){
-			this.container.append(item.el);
-		};
+//		var arrayAppendTiles  = function(item){
+//			this.container.append(item.el);
+//		};
 
 		this.relayout = function (topNode) {
 			this.layout.stack.map(updateVisibility);
 			this.layout.rebuild();
 
-			// synchronize dom with stack state
-			this.layout.stack.map(arrayAppendTiles.bind(this));
+			//synchronize dom with stack state
+			// TODO: Why do we need this change?
+			//this.layout.stack.map(arrayAppendTiles.bind(this));
 			this.layout.stack.forEach(function (tile) {
 				if (tile === self._dragTile) { // avoid repositioning active dragee -- XXX: breaks encapsulation
 					return;
 				}
-				setTimeout(function () {
+
 					self.position(tile);
-				}, 1);
 			});
+			self.updateContainerDimensions();
 
 			if (topNode) {
 				topNode.parentNode.appendChild(topNode); // z-index hack -- TODO: use "transitionend" event instead
@@ -1980,12 +1982,8 @@ var Pocketry = (function ($, _) {
 				top: y,
 				left: x,
 				width: (tile.size[0] * self.slotSize) + 'px',
-				height: (tile.size[1] * self.slotSize) + 'px',
-				transition: 'top left',
-				'transition-duration': '0.5s',
-				'-webkit-transition-duration': '0.5s' /* Safari */
+				height: (tile.size[1] * self.slotSize) + 'px'
 			});
-			self.updateContainerDimensions();
 		};
 
 		this.determineColCount = function () {

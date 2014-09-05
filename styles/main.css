@@ -2,17 +2,21 @@
 	position: relative;
 	list-style-type: none;
 	text-align: center;
-    -webkit-transform:translate3d(0,0,0);
+	transform: translate3d(0, 0, 0);
+	/* safari */
+	-webkit-transform: translate3d(0, 0, 0);
 }
 
 .tiles > li {
 	position: absolute;
-    top: 0;
-    left: 0;
+	top: 0;
+	left: 0;
 	width: 100px;
 	height: 100px;
 	line-height: 100px;
-    transition: all 0.5s;
+	transition: all 0.5s;
+	/* safari */
+	-webkit-transform: translate3d(0, 0, 0);
 }
 
 .tiles.animated > li {
@@ -39,12 +43,15 @@
 	border-radius: 50px;
 	background-color: #EDD;
 }
+
 .tiles > .app {
 	background-color: #DED;
 }
+
 .tiles > .freezed {
 	background-color: #247600;
 }
+
 .tiles > .feed {
 	background-color: #DDE;
 }
@@ -52,6 +59,7 @@
 table {
 	border-collapse: collapse;
 }
+
 td {
 	border: 1px solid #AAA;
 	padding: 5px;
