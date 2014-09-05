@@ -1976,14 +1976,12 @@ var Pocketry = (function ($, _) {
 		this.position = function (tile) {
 			var x = tile.position.x * self.slotSize;
 			var y = tile.position.y * self.slotSize;
-			var transform = 'translate(' + x + 'px, ' + y + 'px)';
 			tile.el.css({ // TODO: move width/height into CSS?
-				top: 0,
-				left: 0,
+				top: y,
+				left: x,
 				width: (tile.size[0] * self.slotSize) + 'px',
 				height: (tile.size[1] * self.slotSize) + 'px',
-				'-webkit-transform': transform,
-				transform: transform,
+				transition: 'top left',
 				'transition-duration': '0.5s',
 				'-webkit-transition-duration': '0.5s' /* Safari */
 			});
