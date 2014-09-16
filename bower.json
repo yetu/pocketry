@@ -19,7 +19,10 @@
 	},
 	"dependencies": {
 		"jqlite": "https://gist.github.com/86a4ecbe0fd9575a0e5b.git",
-		"lodash": "~2.4.1",
-		"draggabilly": "mr-mig/draggabilly#1.1.2"
+		"lodash": "~2.4.1"
+	},
+
+	"devDependencies" : {
+		"draggabilly": "mr-mig/draggabilly#1.2.0"
 	}
 }
