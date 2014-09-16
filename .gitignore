@@ -1,2 +1,14 @@
 /node_modules
 /bower_components
+.idea/modules.xml
+.idea/pocketry.iml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/libraries/pocketry_node_modules.xml
+.idea/scopes/scope_settings.xml
+dist/pocketry-angular.js
+pocketry-angular.js
+.idea/.name
+.idea/encodings.xml
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
