@@ -911,7 +911,7 @@ Pocketry.Layout = function () {
     };
 
     this.onMove = function (draggie, ev, pointer) {
-      console.log(draggie.position, pointer.x, pointer.y);
+      console.debug(draggie.position, pointer.x, pointer.y);
     };
 
     this.onDrop = function (draggie, ev, pointer) {
