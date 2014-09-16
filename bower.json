@@ -1,6 +1,6 @@
 {
 	"name": "Pocketry",
-	"version": "1.6.0",
+	"version": "1.6.1",
 	"private": "true",
 	"main": [
 		"pocketry.js",
@@ -21,8 +21,7 @@
 		"jqlite": "https://gist.github.com/86a4ecbe0fd9575a0e5b.git",
 		"lodash": "~2.4.1"
 	},
-
-	"devDependencies" : {
+	"devDependencies": {
 		"draggabilly": "mr-mig/draggabilly#1.2.0"
 	}
 }
