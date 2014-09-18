@@ -22,6 +22,6 @@
 		"lodash": "~2.4.1"
 	},
 	"devDependencies": {
-		"draggabilly": "mr-mig/draggabilly#1.2.0"
+		"draggabilly": "mr-mig/draggabilly#1.2.1"
 	}
 }
