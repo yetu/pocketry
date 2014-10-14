@@ -1,11 +1,11 @@
 Custom tiles layout library with built-in drag'n'drop support and CSS3 animations.
 
-See the [example](index.html).
+See the [example](https://bitbucket.org/yetu/apphome-pocketry/raw/master/index.html).
 
 Algorithm
 ---------
 
-![algo animation](algo-animation.gif)
+![algo animation](https://bitbucket.org/yetu/apphome-pocketry/raw/master/algo-animation.gif)
 
 
 Getting Started
