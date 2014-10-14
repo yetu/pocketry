@@ -1,3 +1,13 @@
+Custom tiles layout library with built-in drag'n'drop support and CSS3 animations.
+
+See the [example](index.html).
+
+Algorithm
+---------
+
+![algo animation](algo-animation.gif)
+
+
 Getting Started
 ---------------
 
