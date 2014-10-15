@@ -1,3 +1,10 @@
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+
 .tiles {
 	position: relative;
 	list-style-type: none;
@@ -37,24 +44,35 @@
 	transition: none; /* neutralize tiles' animation delay */
 }
 
+.legends > li {
+	width: 250px;
+	list-style-type: none;
+	margin: 2px;
+	padding: 2px; 
+}
+
 /* XXX: DEBUG */
 
-.tiles > .pin {
+.tiles > .pin{
 	border-radius: 50px;
-	background-color: #EDD;
 }
 
-.tiles > .app {
-	background-color: #DED;
+.tiles > .pin, .legends > .pin{
+	background-color: #DB3E14;
 }
 
-.tiles > .freezed {
-	background-color: #247600;
+.tiles > .app, .legends > .app{
+	background-color: #FEAC49;
 }
 
-.tiles > .feed {
-	background-color: #DDE;
+.tiles > .freezed, .legends > .freezed  {
+	background-color: #ADC396;
 }
+
+.tiles > .feed, .legends > .feed {
+	background-color: #13C8F7;
+}
+
 
 table {
 	border-collapse: collapse;
