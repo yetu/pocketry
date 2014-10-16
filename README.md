@@ -1,14 +1,12 @@
 Custom tiles layout library with built-in drag'n'drop support and CSS3 animations.
 
-See the [example](https://bitbucket.org/yetu/apphome-pocketry/raw/master/example/index.html).
+See the [example](example/index.html).
 
 
 ## Concepts
 
-We have a grid with tile elements of various sizes.
-
-Those tiles are "sortable" by the user.
-
+We have a grid with tile elements of various sizes.  
+Those tiles are "sortable" by the user.  
 The grid has the following custom layout algorithm:
 
 1. Split the container element into cells.
@@ -26,22 +24,20 @@ We have 3 predefined (hardcoded) tile sizes:
 
 ### Grid size
 
-Currently the library determines the width of the grid **automatically** based on the container DOM element width.
-
-The height of each *layout row* equals **2 grid cells** by default.
-
+Currently the library determines the width of the grid **automatically** based on the container DOM element width.  
+The height of each *layout row* equals **2 grid cells** by default.  
 The number of rows is **unlimited** (rows added on demand during the layout phase).
 
 ### Algorithm visualization
 
-![algo animation](https://bitbucket.org/yetu/apphome-pocketry/raw/master/example/algo-animation.gif)
+![algo animation](example/algo-animation.gif)
 
 
 ## Install it
 
-1. Install [Bower](http://bower.io)
+1. Install [Bower](http://bower.io)  
   Run `npm install -g bower` in terminal
-2. Install the component using:
+2. Install the component using:  
   Run `bower install yetu/pocketry` in terminal
 
 and then add the script to your page:
@@ -75,8 +71,7 @@ All DOM elements within the container, which have the specified class, **will no
 
 ## Specifying tiles parameters
 
-Each tile is represented by a single DOM element.
-
+Each tile is represented by a single DOM element.  
 This element can have these attributes:
 
 * `data-type` - the type of the tile (`pin`, `feed` or `app`)
@@ -85,8 +80,7 @@ This element can have these attributes:
 
 ## Events API
 
-The grid instance will fire some events during its lifetime.
-
+The grid instance will fire some events during its lifetime.  
 You can add listeners using the code:
 
 `grid.subscribe(eventName, fn);`
@@ -106,7 +100,7 @@ The model of the current layout.
 # Getting started with writing code
 
 * install [Bower](http://bower.io)
-* install [Gulp](http://gulpjs.com/)
+* install [Gulp](http://gulpjs.com/)  
   `npm install -g gulp`
 * `bower install` downloads third-party components
 * Run `gulp tdd` to start watching files and executing tests
