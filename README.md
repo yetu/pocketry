@@ -5,14 +5,14 @@ See the [example](https://bitbucket.org/yetu/apphome-pocketry/raw/master/example
 
 ## Concepts
 
-We have a grid with tile elements of various size.
+We have a grid with tile elements of various sizes.
 
-Those tiles are "sortable" by user.
+Those tiles are "sortable" by the user.
 
-The grid have the custom layout algorithm:
+The grid has the following custom layout algorithm:
 
-1. Split the container element in cells.
-2. Split the layout in rows.
+1. Split the container element into cells.
+2. Split the layout into rows.
 3. Layout the given tiles inside the row in top-right direction.
 4. If tile cannot be placed in a row - go to the next row (presume the initial tiles order)
 
@@ -28,7 +28,7 @@ We have 3 predefined (hardcoded) tile sizes:
 
 Currently the library determines the width of the grid **automatically** based on the container DOM element width.
 
-The height of each *layout row* is equals **2 grid cells** by default.
+The height of each *layout row* equals **2 grid cells** by default.
 
 The number of rows is **unlimited** (rows added on demand during the layout phase).
 
@@ -76,7 +76,7 @@ All DOM elements within the container, which have the specified class, **will no
 
 Each tile is represented by a single DOM element.
 
-This element can have this attributes:
+This element can have these attributes:
 
 * `data-type` - the type of the tile (`pin`, `feed` or `app`)
 * `data-freezed` - the element cannot be moved by user interaction
@@ -84,7 +84,7 @@ This element can have this attributes:
 
 ## Events API
 
-The grid instance will fire some events during the lifetime.
+The grid instance will fire some events during its lifetime.
 
 You can add listeners using the code:
 
