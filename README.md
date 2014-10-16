@@ -39,9 +39,10 @@ The number of rows is **unlimited** (rows added on demand during the layout phas
 
 ## Install it
 
-Install the component using:
-
-`bower install yetu/pocketry`
+1. Install [Bower](http://bower.io)
+  Run `npm install -g bower` in terminal
+2. Install the component using:
+  Run `bower install yetu/pocketry` in terminal
 
 and then add the script to your page:
 
