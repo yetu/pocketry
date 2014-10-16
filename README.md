@@ -109,7 +109,7 @@ The model of the current layout.
   `npm install -g gulp`
 * `bower install` downloads third-party components
 * Run `gulp tdd` to start watching files and executing tests
-* open `index.html` in a reasonably modern browser
+* open `example/index.html` in a reasonably modern browser
 
 
 # Building the component
