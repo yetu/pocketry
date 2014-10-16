@@ -122,6 +122,6 @@ The model of the current layout.
 **Note:** All this commands will **commit & push** the changes to `master`!
 
 # Contributors
-* @mr-mig
-* @eliyetu
-* @FND
+* [mr-mig](http://github.com/mr-mig)
+* [eliyetu](http://github.com/eliyetu)
+* [FND](http://github.com/FND)
