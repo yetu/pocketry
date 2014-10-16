@@ -102,21 +102,23 @@ The list of all available tile types, which can be used as `data-type` attribute
 The model of the current layout.
 
 
-# Contributing
+# Getting started with writing code
 
 * install [Bower](http://bower.io)
+* install [Gulp](http://gulpjs.com/)
+  `npm install -g gulp`
 * `bower install` downloads third-party components
+* Run `gulp tdd` to start watching files and executing tests
 * open `index.html` in a reasonably modern browser
 
 
-## Building
+# Building the component
 
-* install [Gulp](http://gulpjs.com)
 * `gulp dist` creates release files in `./dist`
 
 **Note:** in this case the package will not be checked in.
 
-## Packaging
+# Publishing the component
 
 * `gulp patch` makes v0.1.0 → v0.1.1
 * `gulp minor` makes v0.1.1 → v0.2.0
