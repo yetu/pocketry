@@ -125,3 +125,4 @@ The model of the current layout.
 * [mr-mig](http://github.com/mr-mig)
 * [eliyetu](http://github.com/eliyetu)
 * [FND](http://github.com/FND)
+* [azadorozhniy](http://github.com/azadorozhniy)
