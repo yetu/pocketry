@@ -1,6 +1,6 @@
 Custom tiles layout library with built-in drag'n'drop support and CSS3 animations.
 
-See the [example](https://bitbucket.org/yetu/apphome-pocketry/raw/master/index.html).
+See the [example](https://bitbucket.org/yetu/apphome-pocketry/raw/master/example/index.html).
 
 
 ## Concepts
