@@ -51,6 +51,7 @@ function bumpVersion(importance){
 			.pipe(git.commit('Update version: ' + importance))
 			.pipe(tag())
 			.pipe(git.push('origin', 'master', { args: '--tags' }))
+      .pipe(git.push('github', 'master', { args: '--tags' }))
 
 }
 
