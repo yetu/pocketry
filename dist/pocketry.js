@@ -362,11 +362,13 @@ var Pocketry = (function ($, _) {
 			var self = this;
 			var tiles = _.map(container.children(), function (item, index) {
 				var type = $(item).attr('data-type');
+        var tileId =$(item).attr('data-tyleId');
 				var freezed = Boolean($(item).attr('data-freezed'));
 				var tile = _.extend(_.clone(self.getTileType(type)), {
 					el: $(item),
 					id: '#' + (index + 1),
-					freezed: freezed
+					freezed: freezed,
+          tileId: tileId
 				});
 				return tile;
 			});
