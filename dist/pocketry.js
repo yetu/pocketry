@@ -457,7 +457,7 @@ var Pocketry = (function ($, _) {
 			var container = this.container[0];
 			var colCount = 1;
 			if (container) {
-				colCount = Math.floor(container.clientWidth / this.slotSize);
+				colCount = Math.floor(container.offsetWidth / this.slotSize);
 			}
 			return colCount;
 		};
