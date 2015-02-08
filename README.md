@@ -1,3 +1,6 @@
+# Pocketry
+[![bitHound Score](https://www.bithound.io/yetu/pocketry/badges/score.svg?)](https://www.bithound.io/yetu/pocketry)
+
 Custom tiles layout library with built-in drag'n'drop support and CSS3 animations.
 
 See the [example](example/index.html).
