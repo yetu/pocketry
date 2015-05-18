@@ -895,11 +895,6 @@ Pocketry.Layout = function () {
     this.init = function () {
       var tiles = this.container.children(':not(.draggable) :not([data-freezed=true])');
       $.each(tiles, function (index, node) {
-
-        if (node.draggable != null) {
-          node.draggable('destroy');
-        }
-
         var draggie = new Draggabilly(node, {
 					containment: self.container[0],
 					forceTranslatePositioning: true
@@ -930,7 +925,6 @@ Pocketry.Layout = function () {
     };
 
     this.onDrop = function (draggie, ev, pointer) {
-      console.log('onDrop');
       var relativePointer = getRelativePointer(pointer);
       var target = self.determineDropTarget(relativePointer);
       var dragTile = self._dragTile;
