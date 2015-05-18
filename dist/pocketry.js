@@ -895,6 +895,11 @@ Pocketry.Layout = function () {
     this.init = function () {
       var tiles = this.container.children(':not(.draggable) :not([data-freezed=true])');
       $.each(tiles, function (index, node) {
+
+        if (node.draggable != null) {
+          node.draggable('destroy');
+        }
+
         var draggie = new Draggabilly(node, {
 					containment: self.container[0],
 					forceTranslatePositioning: true
@@ -912,7 +917,7 @@ Pocketry.Layout = function () {
       return tiles;
     };
 
-    self.onPick = function (draggie, ev, pointer) {
+    this.onPick = function (draggie, ev, pointer) {
       self._dragTile = self.determineTile(
         draggie.position,
         self.layout.matrix,
@@ -925,6 +930,7 @@ Pocketry.Layout = function () {
     };
 
     this.onDrop = function (draggie, ev, pointer) {
+      console.log('onDrop');
       var relativePointer = getRelativePointer(pointer);
       var target = self.determineDropTarget(relativePointer);
       var dragTile = self._dragTile;
@@ -999,6 +1005,36 @@ Pocketry.prototype.subscribe = function(msg, callback) {
 		subs[msg] = [];
 	}
 	subs[msg].push(callback);
+	console.log('subscriptions', subs);
+};
+
+/**
+ * Stop listening for determined message. If some callback
+ * is specified, will remove just the callback, if not, will
+ * remove all the callbacks.
+ * @param  {string}   msg      event name
+ * @param  {Function} callback the handler or undefined for unsubscribe for all
+ * @return {void}
+ */
+Pocketry.prototype.unsubscribe = function(msg, callback) {
+	if(this.subscriptions && this.subscriptions[msg]) {
+		if (callback != null) {
+			var index = this.subscriptions[msg].indexOf(callback);
+			if (index >= 0) {
+				this.subscriptions[msg].splice(index, 1);
+			}
+		} else {
+			this.subscriptions[msg] = [];
+		}
+	}
+};
+
+/**
+ * Stop to listen to all events.
+ * @return {void}
+ */
+Pocketry.prototype.deafen = function() {
+	this.subscriptions = {};
 };
 
 // adapted from StuffJS (https://github.com/bengillies/stuff-js)

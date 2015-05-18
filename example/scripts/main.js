@@ -5,6 +5,8 @@
 'use strict';
 
 var board = new Pocketry('.tiles', 2, { interactive: true });
+board = new Pocketry('.tiles', 2, { interactive: true });
+board = new Pocketry('.tiles', 2, { interactive: true });
 
 // debug rendering
 console.debug(LOG.serializeStack(board.layout.stack));
