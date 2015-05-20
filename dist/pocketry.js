@@ -361,15 +361,18 @@ var Pocketry = (function ($, _) {
 		this.initTiles = function (container) {
 			var self = this;
 			var tiles = _.map(container.children(), function (item, index) {
+
 				var type = $(item).attr('data-type');
-        var tileId =$(item).attr('data-tileid');
+        		var tileId = $(item).attr('data-tileid');
+
 				var freezed = Boolean($(item).attr('data-freezed'));
 				var tile = _.extend(_.clone(self.getTileType(type)), {
 					el: $(item),
 					id: '#' + (index + 1),
 					freezed: freezed,
-          tileId: tileId
+					tileId: tileId
 				});
+
 				return tile;
 			});
 
@@ -999,7 +1002,6 @@ Pocketry.prototype.subscribe = function(msg, callback) {
 		subs[msg] = [];
 	}
 	subs[msg].push(callback);
-	console.log('subscriptions', subs);
 };
 
 /**
